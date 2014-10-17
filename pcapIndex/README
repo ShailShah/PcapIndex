@@ -1,0 +1,46 @@
+Please Go through the following instructions
+
+1)There are two files in the folder:- PacketIndexer.c and Query_interpreter.c
+2)
+  a)The program needs a trace file or dump file that contains all the packets. The sample trace file is provided in the folder.
+  b)If the user wants to use their own dumpfile then keep that file in the same folder as PacketIndexer.c
+  c)Rename the tracefile as trace4
+  	
+3)Compile and runthe PacketIndexer.c using the following command
+	gcc PacketIndexer.c -lpcap
+	./a.out
+	
+4)Compile and run the Query_interpreter.c using the following command
+	gcc Query_interpreter.c -lpcap	
+	./a.out
+	
+5)It will ask the user for to give the input attributes using which the packet has to be retreived.
+  The input attributes supported and the format of input to be given by the user has been shown below.
+  No spaces should be given in the input.
+
+
+	Input Attributes
+
+Source IP:- srcip
+Destination IP:- dstip
+Source Port:- srcport
+Destination Port:- dstport
+Protocol Type:- protocol
+AND:- :
+OR:- ;
+
+
+Input Format will be like this:-
+
+	EXAMPLES
+1)srcip=10.3.1.6;dstip=23.34.54.56
+2)protocol=6		
+3)protocol=3:srcport=345
+
+After pressing enter you will get all the list of packets matching your requirements.
+
+
+REFERENCES/SOURCES
+1) Used Basic Compression Library bcl-1.2.0 for RLE compression and RLE uncompression.
+2)Used libpcap libraries.
+3)Used wireshark for creating the trace file and packet capturing.

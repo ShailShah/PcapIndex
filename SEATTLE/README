@@ -1,0 +1,31 @@
+*Each laptop(acting as switch) will run a server program and a client program.
+eg. Switch1 will run s1c.py(client) and s1s.py(server)
+
+*Client program scans ports and sends update and keepalive messeges as required to server programs of other switches.
+
+*The server programs listen on their respective sockets and save/delete the mappings and alter ttl values as per the receieved messeges
+
+*The format of messeges sent by client for update/keepalive are as follows:
+	Remove:
+		remove <ip>
+	Insert:
+		insert <ip> <loc> <mac>
+	Keep-Alive:
+		keepalive <ip>
+where ip is the key.
+
+*When entry is made/altered, the server program sends confirmation.
+
+*Sample outputs of server programs are given in the log files name log_s1,log_s2,log_s3.
+
+*The simulation of entry and exit of hosts happens in client programs of the respective switches using timers(Timer methods from threading module in python) as per the given test cases.
+
+*The code for consistenthash.py was taken from http://amix.dk/blog/post/19367.
+
+*The files ip_addr.py and mac_addr.py store the ips and macs respectively used in simulation.
+
+*The mac addresses of hosts are as per the test case file.
+
+*The mac addresses of switches are mac1,mac2 and mac3. 
+
+*The testing was done by giving aliases to loopback interface. The file alias.sh can be used for that.
